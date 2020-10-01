@@ -8,6 +8,10 @@ class Sqlshell < Formula
 
   depends_on "coreutils"
 
+  resource "appdirs" do
+    url "https://github.com/splicemaahs/homebrew-utility.git"
+  end
+
   def install
     system "patch sqlshell.sh bin/sqlshell.patch"
     bin.install "sqlshell.sh"
