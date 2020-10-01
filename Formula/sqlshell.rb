@@ -4,7 +4,7 @@ class Sqlshell < Formula
   url "https://splice-releases.s3.amazonaws.com/3.0.0.1960/cluster/sqlshell/sqlshell-3.0.0.1960.tar.gz"
   sha256 "a7a8b999a69f1e75c80239e2786ff7eb8d6faddd76ffc0ffe4f07cf32880d2a7"
   version "3.0.0.1960"
-  revision 8
+  revision 9
 
   depends_on "coreutils"
 
@@ -13,7 +13,7 @@ class Sqlshell < Formula
   end
 
   def install
-    resource("sources").stage { system "patch sqlshell.sh bin/sqlshell.patch" }
+    resource("sources").stage { system "patch", "./sqlshell.sh", "./bin/sqlshell.patch" }
     bin.install "sqlshell.sh"
     lib.install Dir["lib/*.*"]
   end
