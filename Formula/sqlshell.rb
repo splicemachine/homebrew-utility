@@ -4,12 +4,12 @@ class Sqlshell < Formula
   url "https://splice-releases.s3.amazonaws.com/3.0.0.1960/cluster/sqlshell/sqlshell-3.0.0.1960.tar.gz"
   sha256 "a7a8b999a69f1e75c80239e2786ff7eb8d6faddd76ffc0ffe4f07cf32880d2a7"
   version "3.0.0.1960"
-  revision 6
+  revision 7
 
   depends_on "coreutils"
 
   resource "appdirs" do
-    url "https://github.com/splicemaahs/homebrew-utility.git"
+    url "https://github.com/splicemachine/homebrew-utility.git"
   end
 
   def install
