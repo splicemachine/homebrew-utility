@@ -4,7 +4,7 @@ class Sqlshell < Formula
   url "https://splice-releases.s3.amazonaws.com/3.0.0.1960/cluster/sqlshell/sqlshell-3.0.0.1960.tar.gz"
   sha256 "a7a8b999a69f1e75c80239e2786ff7eb8d6faddd76ffc0ffe4f07cf32880d2a7"
   version "3.0.0.1960"
-  revision 16
+  revision 17
 
   depends_on "coreutils"
 
@@ -13,9 +13,9 @@ class Sqlshell < Formula
       --- sqlshell.sh.orig	2020-09-30 23:54:45.000000000 -0500
       +++ sqlshell.sh	2020-10-01 00:02:55.000000000 -0500
       @@ -153,14 +153,24 @@
-      SPLICE_LIB_DIR="##SPLICELIBDIR##"
+       SPLICE_LIB_DIR="##SPLICELIBDIR##"
 
-      if [[ "$SPLICE_LIB_DIR" == *"##"* ]]; then
+       if [[ "$SPLICE_LIB_DIR" == *"##"* ]]; then
       -   CURDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
       -
       -   # ends in bin, go up and over to lib
@@ -42,12 +42,12 @@ class Sqlshell < Formula
       +         SPLICE_LIB_DIR="${SYMLINK_TARGET_DIR}/lib"
       +      fi
       +  fi
-      fi
+       fi
 
-      #check if all the tools needed to connect are found
+       #check if all the tools needed to connect are found
     EOS
 
-    # system "patch sqlshell.sh sqlshell.patch"
+    system "patch sqlshell.sh sqlshell.patch"
     bin.install "sqlshell.sh"
     lib.install "sqlshell.patch"
     lib.install Dir["lib/*.*"]
