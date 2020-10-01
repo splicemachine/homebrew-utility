@@ -4,12 +4,12 @@ class Sqlshell < Formula
   url "https://splice-releases.s3.amazonaws.com/3.0.0.1960/cluster/sqlshell/sqlshell-3.0.0.1960.tar.gz"
   sha256 "a7a8b999a69f1e75c80239e2786ff7eb8d6faddd76ffc0ffe4f07cf32880d2a7"
   version "3.0.0.1960"
-  revision 11
+  revision 12
 
   depends_on "coreutils"
 
   def install
-    ("sqlshell.patch").write <<~EOF
+    File.write "sqlshell.patch", <<~EOS
       *** sqlshell.sh	2020-06-17 21:29:40.000000000 -0500
       --- /usr/local/bin/sqlshell.sh	2020-09-30 22:52:16.000000000 -0500
       ***************
@@ -51,7 +51,7 @@ class Sqlshell < Formula
           fi
         fi
 
-    EOF
+    EOS
     system "patch sqlshell.sh sqlshell.patch"
     bin.install "sqlshell.sh"
     lib.install Dir["lib/*.*"]
