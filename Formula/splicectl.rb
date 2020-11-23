@@ -2,8 +2,8 @@ class Splicectl < Formula
   desc "This is the control CLI for Splice Machine databases on Kubernetes"
   homepage "https://github.com/splicemachine/homebrew-utility"
   url "https://github.com/splicemachine/homebrew-utility.git"
-  version "0.0.16"
-  revision 4
+  version "0.0.17"
+  revision 1
 
   if Hardware::CPU.is_32_bit?
     if OS.linux?
