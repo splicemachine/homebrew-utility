@@ -5,21 +5,21 @@
 class Splicectl < Formula
   desc "This is the control CLI for Splice Machine databases on Kubernetes"
   homepage "https://github.com/splicemachine/splicectl/"
-  version "0.1.0"
+  version "0.1.1"
   license "AGPL-3.0-only"
   bottle :unneeded
 
-  if OS.mac?
-    url "https://github.com/splicemachine/splicectl/releases/download/v0.1.0/splicectl_darwin_amd64.tar.gz"
-    sha256 "e6cd808e322fddd5f2f4291133fe097eb0a0b8f818a50467f35bd62c7f20f999"
+  if OS.mac? && Hardware::CPU.intel?
+    url "https://github.com/splicemachine/splicectl/releases/download/v0.1.1/splicectl_darwin_amd64.tar.gz"
+    sha256 "e18c516b868fb5198487446ad43ce8d95a5e251f744347755cfc465ff435fd0a"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/splicemachine/splicectl/releases/download/v0.1.0/splicectl_linux_amd64.tar.gz"
-    sha256 "8b344ffb866b2f596f1d6927b827a02e802dcf23589bac3f630d3507ffd19bb4"
+    url "https://github.com/splicemachine/splicectl/releases/download/v0.1.1/splicectl_linux_amd64.tar.gz"
+    sha256 "eca5d0aa816faa69f8b9415319c19306c7256631952b2927b70a2ee8cfc92b3e"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/splicemachine/splicectl/releases/download/v0.1.0/splicectl_linux_arm64.tar.gz"
-    sha256 "b99ec7ad95c917ba2087ee514119a8a51929b8cb0bff9158645739bc3a5632b0"
+    url "https://github.com/splicemachine/splicectl/releases/download/v0.1.1/splicectl_linux_arm64.tar.gz"
+    sha256 "77247132a9a1c9be6c0d9cdf7b1dc50b29e3ad8faec310a23fb2f4aae235e9b3"
   end
 
   def install
